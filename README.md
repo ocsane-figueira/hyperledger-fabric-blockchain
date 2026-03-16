@@ -1,31 +1,77 @@
-# Projeto de Blockchain
+## 🚀 Como executar o projeto
 
-## Como rodar a aplicação Blockchain: https://youtu.be/3NGgofHuYI0?si=O14lIvQpiTDQjt1h
-## Explicação Blockchain: https://youtu.be/A9RpqFeFdR8?si=VhmrfNkpbAlbAePl
+### 1. Iniciar a rede Blockchain
 
-## Iniciar a Blockchain
-1. Acesse o diretório da rede de teste:
-   ```bash
-   cd fabric-samples/test-network
-   ./network.sh down
-   ./network.sh up createChannel -c mychannel -ca
-   ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript/ -ccl javascript
-   ```
+Acesse o diretório da rede de teste do Hyperledger Fabric:
 
-## Configuração no VSCode:
-2. Abrir a pasta 
+```bash
+cd fabric-samples/test-network
+```
+
+Derrube qualquer rede que esteja rodando:
+
+```bash
+./network.sh down
+```
+
+Suba a rede e crie o canal:
+
+```bash
+./network.sh up createChannel -c mychannel -ca
+```
+
+Faça o deploy do chaincode:
+
+```bash
+./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript/ -ccl javascript
+```
+
+---
+
+### 2. Configuração da aplicação no VSCode
+
+Abra a pasta do projeto da aplicação:
+
 ```bash
 hyperledger/fabric-samples/asset-transfer-basic/application-javascript
 ```
 
-3. Abrir o terminal do VScode
-  ```bash
-  sudo su
-  npm install
-  npm install express
-  node app.js
-  ```
+Abra o terminal dentro do VSCode e execute:
 
+```bash
+sudo su
+npm install
+npm install express
+node app.js
+```
+---
 
-4. Sempre que terminar de usar a blockchain use o ```bash./network.sh down``` dentro do terminal da pasta BlockChainRedes 
-5. No terminal do VScode use o comando: ```rm -rf wallet```
+### 3. Encerrar a rede Blockchain
+
+Sempre que terminar de utilizar a rede blockchain, execute o comando abaixo dentro da pasta da rede:
+
+```bash
+./network.sh down
+```
+
+---
+
+### 4. Limpar a carteira da aplicação
+
+No terminal do VSCode, execute:
+
+```bash
+rm -rf wallet
+```
+
+Esse comando remove os certificados e identidades armazenadas localmente pela aplicação.
+
+---
+
+## 🧰 Tecnologias utilizadas
+
+- Hyperledger Fabric  
+- Node.js  
+- Express  
+- JavaScript  
+- Docker
